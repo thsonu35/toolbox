@@ -2,9 +2,15 @@
 
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import Hero from "@/components/Hero";
-import Categories from "@/components/Categories";
-import PopularTools from "@/components/PopularTools";
+import Hero from "@/sections/Hero";
+import Categories from "@/sections/Categories";
+import PopularTools from "@/sections/PopularTools";
+import RecentlyAdded from "@/sections/RecentlyAddedAndFeaturedCollection";
+import FaqAndCta from "@/sections/FaqAndCta";
+import Footer from "@/components/Footer";
+import Statistics from "@/sections/Statistics";
+import FeaturedCollections from "@/sections/FeaturedCollections";
+import WhyToolbox from "@/sections/WhyToolbox";
 
 export default function Page() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -20,16 +26,20 @@ export default function Page() {
 
   return (
     <div className={isDarkMode ? "dark" : ""}>
-      <Navbar 
-        onOpenSearch={handleOpenSearch} 
-        toggleTheme={toggleTheme} 
-        isDarkMode={isDarkMode} 
+      <Navbar
+        onOpenSearch={handleOpenSearch}
+        toggleTheme={toggleTheme}
+        isDarkMode={isDarkMode}
       />
 
-      <Hero/>
-
-      <Categories/>
-      <PopularTools/>
+      <Hero />
+      <Categories />
+      <PopularTools />
+      <RecentlyAdded />
+      <WhyToolbox />
+      <Statistics />
+      <FaqAndCta />
+      <Footer />
     </div>
   );
 }
