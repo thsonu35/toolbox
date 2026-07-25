@@ -55,137 +55,138 @@ export default function Navbar({
   return (
     <>
       <header
-        className={`sticky top-0 z-40 transition-colors duration-150 w-full ${
+        className={`sticky top-0 z-40 transition-all duration-200 w-full ${
           isScrolled
-            ? "bg-background/90 border-b border-border shadow-sm"
+            ? "bg-background/90 backdrop-blur-md border-b border-border shadow-sm"
             : "bg-background border-b border-transparent"
         }`}
       >
         {/* Container */}
-        <div className="w-full px-8 sm:px-16 lg:px-24 h-24 flex items-center justify-between">
+        <div className="w-full px-6 sm:px-12 lg:px-20 max-w-[1550px] mx-auto h-20 flex items-center justify-between">
           
-          {/* Left Section */}
-          <div className="flex items-center gap-16 h-full">
-            <Link href="/" className="flex items-center gap-3.5 group">
-              <div className="bg-sky-600 text-white p-3 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-105 shadow-sm">
-                <Wrench className="w-7 h-7" />
+          {/* Left Section: Logo & Nav */}
+          <div className="flex items-center gap-10 lg:gap-12 h-full">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="bg-sky-600 text-white p-2.5 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-105 shadow-sm">
+                <Wrench className="w-6 h-6" />
               </div>
-              <span className="font-extrabold text-2xl tracking-tight text-foreground">
+              <span className="font-extrabold text-xl tracking-tight text-foreground">
                 TOOLBOX
               </span>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-12 h-full text-lg font-medium text-muted-foreground">
+            <nav className="hidden lg:flex items-center gap-8 h-full text-base font-medium text-muted-foreground">
               <Link href="#tools" className="h-full flex items-center relative text-foreground/85 hover:text-foreground transition-colors group">
                 Tools
-                <span className="absolute bottom-3 left-0 w-0 h-0.5 bg-foreground transition-all duration-200 group-hover:w-full" />
+                <span className="absolute bottom-2.5 left-0 w-0 h-0.5 bg-sky-600 transition-all duration-200 group-hover:w-full" />
               </Link>
               <Link href="#categories" className="h-full flex items-center relative text-foreground/85 hover:text-foreground transition-colors group">
                 Categories
-                <span className="absolute bottom-3 left-0 w-0 h-0.5 bg-foreground transition-all duration-200 group-hover:w-full" />
+                <span className="absolute bottom-2.5 left-0 w-0 h-0.5 bg-sky-600 transition-all duration-200 group-hover:w-full" />
               </Link>
               <Link href="#api" className="h-full flex items-center relative text-foreground/85 hover:text-foreground transition-colors group">
                 API
-                <span className="absolute bottom-3 left-0 w-0 h-0.5 bg-foreground transition-all duration-200 group-hover:w-full" />
+                <span className="absolute bottom-2.5 left-0 w-0 h-0.5 bg-sky-600 transition-all duration-200 group-hover:w-full" />
               </Link>
               <Link href="#pricing" className="h-full flex items-center relative text-foreground/85 hover:text-foreground transition-colors group">
                 Pricing
-                <span className="absolute bottom-3 left-0 w-0 h-0.5 bg-foreground transition-all duration-200 group-hover:w-full" />
+                <span className="absolute bottom-2.5 left-0 w-0 h-0.5 bg-sky-600 transition-all duration-200 group-hover:w-full" />
               </Link>
               <Link href="#docs" className="h-full flex items-center relative text-foreground/85 hover:text-foreground transition-colors group">
                 Documentation
-                <span className="absolute bottom-3 left-0 w-0 h-0.5 bg-foreground transition-all duration-200 group-hover:w-full" />
+                <span className="absolute bottom-2.5 left-0 w-0 h-0.5 bg-sky-600 transition-all duration-200 group-hover:w-full" />
               </Link>
             </nav>
           </div>
 
           {/* Right Actions */}
-          <div className="hidden lg:flex items-center gap-5 h-full">
+          <div className="hidden lg:flex items-center gap-3 h-full">
             <button
               onClick={() => setSearchOpen(true)}
               aria-label="Search tools"
-              className="p-3.5 text-muted-foreground hover:text-foreground rounded-2xl hover:bg-secondary transition-colors"
+              className="p-3 text-muted-foreground hover:text-foreground rounded-2xl hover:bg-secondary transition-colors"
             >
-              <Search className="w-6 h-6" />
+              <Search className="w-5 h-5" />
             </button>
 
             <button
               aria-label="Notifications"
-              className="p-3.5 text-muted-foreground hover:text-foreground rounded-2xl hover:bg-secondary transition-colors relative"
+              className="p-3 text-muted-foreground hover:text-foreground rounded-2xl hover:bg-secondary transition-colors relative"
             >
-              <Bell className="w-6 h-6" />
-              <span className="absolute top-3 right-3 w-2 h-2 bg-sky-600 rounded-full" />
+              <Bell className="w-5 h-5" />
+              <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-sky-600 rounded-full" />
             </button>
 
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-3.5 text-muted-foreground hover:text-foreground rounded-2xl hover:bg-secondary transition-colors"
+              className="p-3 text-muted-foreground hover:text-foreground rounded-2xl hover:bg-secondary transition-colors"
             >
-              {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+              {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
 
-            <div className="ml-3 flex items-center">
+            <div className="ml-2 flex items-center">
               <button
                 onClick={() => setLoginModalOpen(true)}
-                className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-base py-3.5 px-7 rounded-2xl shadow-sm transition-colors active:scale-95"
+                className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm py-3 px-6 rounded-2xl shadow-sm transition-all active:scale-95"
               >
-                <User className="w-5 h-5" />
+                <User className="w-4 h-4" />
                 <span>Login / Dashboard</span>
               </button>
             </div>
           </div>
 
           {/* Mobile Controls */}
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={toggleTheme}
+              aria-label="Toggle theme"
               className="p-3 text-muted-foreground hover:text-foreground rounded-xl hover:bg-secondary"
             >
-              {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+              {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
             
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
               className="p-3 text-foreground rounded-xl hover:bg-secondary"
             >
-              {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-24 left-0 w-full bg-background border-b border-border px-8 py-8 shadow-xl flex flex-col gap-6">
-            <Link href="#tools" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground py-2">Tools</Link>
-            <Link href="#categories" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground py-2">Categories</Link>
-            <Link href="#api" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground py-2">API</Link>
-            <Link href="#pricing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground py-2">Pricing</Link>
-            <Link href="#docs" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground py-2">Documentation</Link>
+          <div className="lg:hidden absolute top-20 left-0 w-full bg-background border-b border-border px-6 py-6 shadow-xl flex flex-col gap-4">
+            <Link href="#tools" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground py-1.5">Tools</Link>
+            <Link href="#categories" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground py-1.5">Categories</Link>
+            <Link href="#api" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground py-1.5">API</Link>
+            <Link href="#pricing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground py-1.5">Pricing</Link>
+            <Link href="#docs" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground py-1.5">Documentation</Link>
             
-            <div className="pt-5 border-t border-border flex flex-col gap-4">
+            <div className="pt-4 border-t border-border flex flex-col gap-3">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   setSearchOpen(true);
                 }}
-                className="flex items-center justify-center gap-3 w-full py-4 px-4 text-lg font-medium text-foreground bg-secondary rounded-xl"
+                className="flex items-center justify-center gap-2.5 w-full py-3.5 px-4 text-base font-medium text-foreground bg-secondary rounded-xl"
               >
                 <Search className="w-5 h-5" /> Search Tools...
               </button>
-              <div className="w-full pt-1">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setLoginModalOpen(true);
-                  }}
-                  className="w-full flex items-center justify-center gap-2 bg-sky-600 text-white font-semibold py-4 text-lg rounded-xl shadow-sm"
-                >
-                  <User className="w-5 h-5" />
-                  <span>Login / Dashboard</span>
-                </button>
-              </div>
+              
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setLoginModalOpen(true);
+                }}
+                className="w-full flex items-center justify-center gap-2 bg-sky-600 text-white font-semibold py-3.5 text-base rounded-xl shadow-sm"
+              >
+                <User className="w-5 h-5" />
+                <span>Login / Dashboard</span>
+              </button>
             </div>
           </div>
         )}
@@ -193,9 +194,9 @@ export default function Navbar({
 
       {/* Global Search Modal */}
       {searchOpen && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-start justify-center pt-20 px-4">
-          <div className="bg-background border border-border w-full max-w-2xl rounded-2xl shadow-xl p-6 relative flex flex-col gap-4">
-            <div className="flex items-center justify-between border-b border-border pb-4">
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-start justify-center pt-24 px-4">
+          <div className="bg-background border border-border w-full max-w-xl rounded-2xl shadow-xl p-5 relative flex flex-col gap-4">
+            <div className="flex items-center justify-between border-b border-border pb-3">
               <div className="flex items-center gap-3 w-full">
                 <Search className="w-5 h-5 text-muted-foreground" />
                 <input
@@ -217,14 +218,14 @@ export default function Navbar({
         </div>
       )}
 
-      {/* High Performance Lightweight Responsive Login Modal */}
+      {/* Login / Auth Modal */}
       {loginModalOpen && (
         <div 
-          className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={handleCloseModal}
         >
           <div 
-            className="bg-background border border-border w-full max-w-lg max-h-[85vh] rounded-3xl shadow-2xl p-6 sm:p-8 relative flex flex-col overflow-y-auto"
+            className="bg-background border border-border w-full max-w-lg max-h-[90vh] rounded-3xl shadow-2xl p-6 sm:p-8 relative flex flex-col overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -289,7 +290,6 @@ export default function Navbar({
 
             {/* Auth Form */}
             <form onSubmit={handleAuthSubmit} className="flex flex-col gap-3.5">
-              
               {isSignUp && (
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
@@ -303,7 +303,7 @@ export default function Navbar({
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       placeholder="John Doe"
-                      className="w-full bg-secondary/40 border border-border focus:border-sky-500 rounded-xl pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-sky-500 transition-colors"
+                      className="w-full bg-secondary/40 border border-border focus:border-sky-500 rounded-xl pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-sky-500"
                     />
                   </div>
                 </div>
@@ -322,7 +322,7 @@ export default function Navbar({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="name@example.com"
-                    className="w-full bg-secondary/40 border border-border focus:border-sky-500 rounded-xl pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-sky-500 transition-colors"
+                    className="w-full bg-secondary/40 border border-border focus:border-sky-500 rounded-xl pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-sky-500"
                   />
                 </div>
               </div>
@@ -347,7 +347,7 @@ export default function Navbar({
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="w-full bg-secondary/40 border border-border focus:border-sky-500 rounded-xl pl-10 pr-10 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-sky-500 transition-colors"
+                    className="w-full bg-secondary/40 border border-border focus:border-sky-500 rounded-xl pl-10 pr-10 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-sky-500"
                   />
                   <button
                     type="button"
@@ -373,8 +373,8 @@ export default function Navbar({
                   </label>
                 ) : (
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-sky-500 flex-shrink-0" />
-                    <span>By signing up, you agree to Terms & Privacy Policy</span>
+                    <CheckCircle2 className="w-4 h-4 text-sky-500 shrink-0" />
+                    <span>By signing up, you agree to terms & privacy policy</span>
                   </div>
                 )}
               </div>

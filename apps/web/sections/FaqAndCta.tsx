@@ -78,49 +78,49 @@ export default function FaqAndCta() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-16 sm:py-24 bg-background relative overflow-hidden">
+    <section className="py-12 sm:py-16 bg-background relative overflow-hidden">
       <div className="w-full px-6 sm:px-12 lg:px-20 max-w-[1550px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
           {/* Left Column: FAQ Accordion (7 Cols) */}
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary text-foreground text-xs font-black uppercase tracking-wider mb-3 border border-border">
-                <HelpCircle className="w-4 h-4 text-sky-500" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-foreground text-[10px] font-black uppercase tracking-wider mb-2.5 border border-border">
+                <HelpCircle className="w-3.5 h-3.5 text-sky-500" />
                 <span>Frequently Asked Questions</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground mb-8">
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground mb-6">
                 Got Questions? We've Got Answers.
               </h2>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {FAQS.map((faq, index) => {
                   const isOpen = openIndex === index;
                   return (
                     <div
                       key={index}
-                      className={`rounded-2xl border-2 transition-all duration-300 overflow-hidden ${
+                      className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                         isOpen
-                          ? `${faq.colors.activeBorder} ${faq.colors.activeBg} shadow-lg scale-[1.01]`
-                          : `bg-card border-border ${faq.colors.hoverBorder}`
+                          ? `${faq.colors.activeBorder} ${faq.colors.activeBg} shadow-md`
+                          : `bg-card border-border/80 ${faq.colors.hoverBorder}`
                       }`}
                     >
                       <button
                         onClick={() => setOpenIndex(isOpen ? null : index)}
-                        className={`w-full text-left p-5 flex items-center justify-between font-extrabold text-base transition-colors ${
+                        className={`w-full text-left px-4 py-3.5 flex items-center justify-between font-extrabold text-sm sm:text-base transition-colors ${
                           isOpen ? faq.colors.activeText : "text-foreground"
                         }`}
                       >
-                        <span className="pr-4">{faq.q}</span>
+                        <span className="pr-3">{faq.q}</span>
                         <div
-                          className={`p-1.5 rounded-xl transition-all duration-300 ${
+                          className={`p-1 rounded-lg transition-all duration-300 ${
                             isOpen
-                              ? `${faq.colors.iconBg} shadow-md rotate-180`
+                              ? `${faq.colors.iconBg} shadow-sm rotate-180`
                               : "bg-secondary text-muted-foreground"
                           }`}
                         >
-                          <ChevronDown className="w-4 h-4 shrink-0 transition-transform" />
+                          <ChevronDown className="w-3.5 h-3.5 shrink-0 transition-transform" />
                         </div>
                       </button>
 
@@ -131,7 +131,7 @@ export default function FaqAndCta() {
                         }`}
                       >
                         <div className="overflow-hidden">
-                          <div className="px-5 pb-5 text-sm text-foreground/80 leading-relaxed font-medium pt-1">
+                          <div className="px-4 pb-4 text-xs sm:text-sm text-foreground/80 leading-relaxed font-medium">
                             {faq.a}
                           </div>
                         </div>
@@ -144,47 +144,47 @@ export default function FaqAndCta() {
           </div>
 
           {/* Right Column: Deep Dark CTA Box (5 Cols) */}
-          <div className="lg:col-span-5 bg-slate-950 border border-slate-800 rounded-[2.5rem] p-8 sm:p-10 flex flex-col justify-between shadow-2xl relative overflow-hidden">
+          <div className="lg:col-span-5 bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
             {/* Dark Mode Neon Glows */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/20 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-600/20 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-60 h-60 bg-sky-500/20 rounded-full blur-[80px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-60 h-60 bg-purple-600/20 rounded-full blur-[80px] pointer-events-none" />
 
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/10 text-sky-300 text-xs font-black uppercase tracking-wider mb-6 shadow-sm backdrop-blur-md">
-                <Sparkles className="w-3.5 h-3.5 text-purple-400 fill-purple-400" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-sky-300 text-[10px] font-black uppercase tracking-wider mb-4 shadow-sm backdrop-blur-md">
+                <Sparkles className="w-3 h-3 text-purple-400 fill-purple-400" />
                 <span>Supercharge Your Workflow</span>
               </div>
 
-              <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight mb-4">
+              <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white leading-tight mb-3">
                 Ready to simplify your daily work?
               </h3>
 
-              <p className="text-slate-300 text-sm leading-relaxed mb-8 font-medium">
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
                 Join thousands of developers, creators, and students who rely on Toolbox for lightning-fast, secure micro-apps.
               </p>
 
               {/* White Checkmarks for Dark BG */}
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3 text-sm font-bold text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-sky-400" />
+              <div className="space-y-2.5 mb-6">
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-200">
+                  <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0" />
                   <span>500+ Online Tools Ready To Use</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm font-bold text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-purple-400" />
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-200">
+                  <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0" />
                   <span>100% In-Browser & Private Sandbox</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm font-bold text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-200">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>No Registration Required</span>
                 </div>
               </div>
             </div>
 
-            <div className="relative z-10 pt-6 border-t border-slate-800/80">
-              <div className="flex flex-col sm:flex-row gap-3 mb-5">
+            <div className="relative z-10 pt-4 border-t border-slate-800/80">
+              <div className="flex flex-col sm:flex-row gap-2.5 mb-4">
                 <Link
                   href="#tools"
-                  className="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-extrabold text-sm py-4 px-6 rounded-2xl transition-all shadow-lg shadow-sky-500/25 active:scale-95"
+                  className="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-extrabold text-xs sm:text-sm py-3 px-5 rounded-xl transition-all shadow-md shadow-sky-500/20 active:scale-95"
                 >
                   <span>Explore All Tools</span>
                   <ArrowRight className="w-4 h-4" />
@@ -192,14 +192,14 @@ export default function FaqAndCta() {
 
                 <Link
                   href="/login"
-                  className="inline-flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-extrabold text-sm py-4 px-6 rounded-2xl transition-all"
+                  className="inline-flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-extrabold text-xs sm:text-sm py-3 px-5 rounded-xl transition-all"
                 >
                   <span>Sign In</span>
                 </Link>
               </div>
 
-              <div className="flex items-center gap-2 text-xs text-slate-400 font-semibold">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <div className="flex items-center gap-1.5 text-[11px] text-slate-400 font-semibold">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Zero Installation • Always Free</span>
               </div>
             </div>
