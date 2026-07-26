@@ -32,6 +32,8 @@ export default function Page() {
         isDarkMode={isDarkMode}
       />
 
+
+
       <Hero />
       <Categories />
       <PopularTools />
