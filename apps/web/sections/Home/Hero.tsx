@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ArrowRight, Sparkles, Zap, ShieldCheck, Cpu } from "lucide-react";
-import CustomButton from "../components/ui/CustomButton";
+import CustomButton from "../../components/ui/CustomButton";
 
 export default function Hero() {
   return (

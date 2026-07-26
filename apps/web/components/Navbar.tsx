@@ -9,11 +9,14 @@ import {
 
 interface NavbarProps {
   toggleTheme?: () => void;
+  onOpenSearch?: () => void;
   isDarkMode?: boolean;
+ 
 }
 
 export default function Navbar({
   toggleTheme,
+  onOpenSearch,
   isDarkMode = false,
 }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -103,7 +106,7 @@ export default function Navbar({
           {/* Right Actions */}
           <div className="hidden lg:flex items-center gap-3 h-full">
             <button
-              onClick={() => setSearchOpen(true)}
+              onClick={onOpenSearch ||(() => setSearchOpen(true))}
               aria-label="Search tools"
               className="p-3 text-muted-foreground hover:text-foreground rounded-2xl hover:bg-secondary transition-colors"
             >
