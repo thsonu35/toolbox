@@ -247,7 +247,7 @@ export default function Categories() {
           </Link>
         </div>
 
-        {/* 6 Columns Grid Layout (Compact height with white card background) */}
+        {/* 6 Columns Grid Layout  */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {CATEGORIES.map((category) => (
             <Link

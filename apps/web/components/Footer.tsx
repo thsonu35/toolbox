@@ -18,7 +18,7 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-card border-t border-border/80 pt-12 pb-8 overflow-hidden text-muted-foreground">
-      {/* Background Gradient Glows */}
+      {/* Background */}
       <div className="absolute top-0 left-1/4 w-80 h-80 bg-sky-500/10 rounded-full blur-[100px] pointer-events-none -z-10" />
       <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none -z-10" />
 
