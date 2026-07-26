@@ -9,7 +9,6 @@ import RecentlyAdded from "@/sections/RecentlyAddedAndFeaturedCollection";
 import FaqAndCta from "@/sections/FaqAndCta";
 import Footer from "@/components/Footer";
 import Statistics from "@/sections/Statistics";
-import FeaturedCollections from "@/sections/FeaturedCollections";
 import WhyToolbox from "@/sections/WhyToolbox";
 
 export default function Page() {
@@ -31,8 +30,6 @@ export default function Page() {
         toggleTheme={toggleTheme}
         isDarkMode={isDarkMode}
       />
-
-
 
       <Hero />
       <Categories />
