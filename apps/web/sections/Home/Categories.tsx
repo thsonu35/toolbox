@@ -31,7 +31,7 @@ const CATEGORIES: Category[] = [
     glowColor: "from-sky-500/15 via-sky-500/5 to-transparent",
     circleColor: "bg-sky-500/15 border-sky-500/30",
     borderColor: "hover:border-sky-500/70",
-    href: "#developer",
+    href: "/categories/developer-suite",
   },
   {
     id: "pdf",
@@ -42,7 +42,7 @@ const CATEGORIES: Category[] = [
     glowColor: "from-rose-500/15 via-rose-500/5 to-transparent",
     circleColor: "bg-rose-500/15 border-rose-500/30",
     borderColor: "hover:border-rose-500/70",
-    href: "#pdf",
+    href: "/categories/pdf-essentials",
   },
   {
     id: "image",
@@ -53,7 +53,7 @@ const CATEGORIES: Category[] = [
     glowColor: "from-emerald-500/15 via-emerald-500/5 to-transparent",
     circleColor: "bg-emerald-500/15 border-emerald-500/30",
     borderColor: "hover:border-emerald-500/70",
-    href: "#image",
+    href: "/categories/image-graphics",
   },
   {
     id: "ai",
