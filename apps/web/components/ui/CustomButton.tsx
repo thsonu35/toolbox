@@ -18,7 +18,6 @@ export default function CustomButton({
   variant = "primary",
   className = "",
 }: CustomButtonProps) {
-  // Variant styles for consistency across the app
   const baseStyles = "inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-ring";
   
   const variants = {
