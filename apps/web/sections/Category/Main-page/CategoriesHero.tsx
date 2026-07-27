@@ -5,7 +5,7 @@ import CustomButton from "@/components/ui/CustomButton";
 
 export default function CategoriesHero() {
   return (
-    <div className="relative pt-8 pb-12 bg-background border-b-2 border-border/80 overflow-hidden">
+    <div className="relative pt-8 pb-10 bg-background border-b-2 border-border/80 overflow-hidden">
       
       {/* Abstract Background Accents */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-sky-500/10 blur-[120px] pointer-events-none rounded-full" />
@@ -20,7 +20,7 @@ export default function CategoriesHero() {
             <span className="text-foreground font-extrabold">Categories Suite</span>
           </nav>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-card border-2 border-border text-xs font-bold text-foreground shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-card border-2 border-border text-xs font-bold text-foreground shadow-xs">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>150+ Developer Tools Active</span>
           </div>
@@ -33,14 +33,14 @@ export default function CategoriesHero() {
           <div className="flex flex-col items-start gap-4 max-w-2xl">
             
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/15 border border-sky-500/30 text-sky-600 dark:text-sky-400 text-xs font-extrabold uppercase tracking-widest">
-              <Sparkles className="w-4 h-4" /> Next-Gen Architecture
+              <Sparkles className="w-3.5 h-3.5" /> Next-Gen Architecture
             </div>
 
             <div>
-              <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-foreground mb-3 leading-[1.1]">
+              <h1 className="text-3xl sm:text-[48px] font-black tracking-tight text-foreground mb-3 leading-[1.1]">
                 Explore All <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-600">Categories</span>
               </h1>
-              <p className="text-muted-foreground text-sm sm:text-base font-medium leading-relaxed">
+              <p className="text-muted-foreground text-xs sm:text-[14px] font-medium leading-relaxed">
                 Unlock peak workflow efficiency with 150+ professional-grade, lightning-fast utilities built for modern engineers.
               </p>
             </div>
@@ -64,10 +64,10 @@ export default function CategoriesHero() {
           {/* Right Floating Tech Elements with Center Metric Pill */}
           <div className="w-full lg:w-auto flex flex-col gap-3 min-w-[320px]">
             
-            {/* Added Center Highlight Pill to fill middle density */}
-            <div className="flex items-center justify-between px-4 py-2.5 rounded-xl bg-sky-500/10 border border-sky-500/30 text-xs font-bold text-sky-600 dark:text-sky-400 shadow-xs">
+            {/* Center Highlight Pill */}
+            <div className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-sky-500/10 border border-sky-500/30 text-xs font-bold text-sky-600 dark:text-sky-400 shadow-xs">
               <span className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-sky-500" /> High Performance Suite
+                <Zap className="w-3.5 h-3.5 text-sky-500" /> High Performance Suite
               </span>
               <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-sky-500/20">Optimized</span>
             </div>
