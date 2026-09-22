@@ -12,6 +12,7 @@ import FaqAndCta from "@/sections/Home/FaqAndCta";
 import Footer from "@/components/Footer";
 import Statistics from "@/sections/Home/Statistics";
 import WhyToolbox from "@/sections/Home/WhyToolbox";
+import Floating from "@/sections/Home/FloatingAIChat"
 
 export default function HomeView() {
   /* State Management */
@@ -71,6 +72,7 @@ export default function HomeView() {
       <PopularTools />
       <RecentlyAdded />
       <WhyToolbox />
+      <Floating/>
       <Statistics />
       <FaqAndCta />
       <Footer />
