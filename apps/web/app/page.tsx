@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 /* Page SEO Metadata */
 export const metadata: Metadata = {
-  title: "Toolbox | 500+ Free Developer Utilities",
+  title: "Toolbox",
   description: "A comprehensive suite of browser-based micro-utilities for developers, creators, and students. Completely free and secure.",
 };
 
