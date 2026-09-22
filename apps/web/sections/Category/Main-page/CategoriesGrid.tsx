@@ -175,115 +175,115 @@ export default function CategoriesGrid({ activeTab = "All Categories" }: Categor
   return (
     <div id="categories-grid" className="w-full px-4 sm:px-8 lg:px-12 max-w-[1550px] mx-auto py-8">
       
-      {/* Header bar with vibrant color accents */}
-      <div className="flex items-center justify-between mb-5 pb-3 border-b-2 border-border/60">
+      {/* Header bar with tighter spacing */}
+      <div className="flex items-center justify-between mb-4 pb-2.5 border-b-2 border-border/60">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-foreground tracking-tight flex items-center gap-2">
+          <h2 className="text-2xl sm:text-[26px] font-black text-foreground tracking-tight flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-sky-500 animate-pulse" />
             {isAllCategories ? "All Categories" : `${currentTab} Tools`}
           </h2>
-          <p className="text-xs text-muted-foreground font-semibold mt-0.5">
+          <p className="text-[13px] sm:text-sm text-muted-foreground font-semibold mt-0.5">
             {isAllCategories 
               ? "Discover tools organized by category to find exactly what you need."
               : `Explore all specialized utilities available under the ${currentTab} suite.`}
           </p>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-bold text-muted-foreground hidden sm:inline">Sort by:</span>
-          <button className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-sky-500/10 to-indigo-500/10 border border-sky-500/30 text-xs font-bold text-sky-600 dark:text-sky-400 shadow-xs hover:border-sky-500 transition-all">
-            <span>Most Popular</span> <ChevronDown className="w-3.5 h-3.5" />
+        {/* <div className="flex items-center gap-2">
+          <span className="text-[13px] font-bold text-muted-foreground hidden sm:inline">Sort by:</span>
+          <button className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-500/10 to-indigo-500/10 border border-sky-500/30 text-[13px] font-bold text-sky-600 dark:text-sky-400 shadow-xs hover:border-sky-500 transition-all cursor-pointer">
+            <span>Most Popular</span> <ChevronDown className="w-4 h-4" />
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Strict 4 Columns in a Row Layout */}
       {isAllCategories ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {filteredCategories.map((cat) => (
             <div 
               key={cat.id} 
-              className="bg-card/90 hover:bg-card border-2 border-border/80 rounded-2xl p-4 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-sky-500/60 transition-all duration-300 group"
+              className="bg-card/90 hover:bg-card border-2 border-border/80 rounded-2xl p-3.5 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-sky-500/60 transition-all duration-300 group"
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between mb-2.5">
                   <div className={`w-10 h-10 rounded-xl border ${cat.iconBg} flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform`}>
                     {cat.icon}
                   </div>
-                  <span className={`text-[10px] font-black px-2.5 py-0.5 rounded-lg border ${cat.badgeColor}`}>
+                  <span className={`text-[11px] sm:text-xs font-black px-2.5 py-0.5 rounded-lg border ${cat.badgeColor}`}>
                     {cat.toolsCount}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-2 mb-1">
-                  <h3 className="text-sm font-black text-foreground group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+                  <h3 className="text-[15px] sm:text-base font-black text-foreground group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
                     {cat.title}
                   </h3>
                 </div>
 
-                <p className="text-xs text-muted-foreground font-medium leading-relaxed mb-4 line-clamp-2">
+                <p className="text-[13px] text-muted-foreground font-medium leading-snug mb-3 line-clamp-2">
                   {cat.description}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-border/60 flex items-center justify-between">
-                <span className="text-[11px] font-bold text-muted-foreground flex items-center gap-1">
-                  <Users className="w-3 h-3 text-sky-500" /> {cat.users}
+              <div className="pt-2.5 border-t border-border/60 flex items-center justify-between">
+                <span className="text-[12px] sm:text-[13px] font-bold text-muted-foreground flex items-center gap-1">
+                  <Users className="w-3.5 h-3.5 text-sky-500" /> {cat.users}
                 </span>
                 <Link 
                   href={cat.href}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-sky-500/10 hover:bg-sky-600 hover:text-white text-sky-600 dark:text-sky-400 text-xs font-black transition-all group-hover:bg-sky-600 group-hover:text-white border border-sky-500/20"
+                  className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-sky-500/10 hover:bg-sky-600 hover:text-white text-sky-600 dark:text-sky-400 text-[13px] font-black transition-all group-hover:bg-sky-600 group-hover:text-white border border-sky-500/20"
                 >
                   <span>Open</span>
-                  <ArrowUpRight className="w-3 h-3" />
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {activeToolsList.length > 0 ? (
             activeToolsList.map((tool) => (
               <div 
                 key={tool.id} 
-                className="bg-card/90 hover:bg-card border-2 border-border/80 rounded-2xl p-4 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-sky-500/60 transition-all duration-300 group"
+                className="bg-card/90 hover:bg-card border-2 border-border/80 rounded-2xl p-3.5 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-sky-500/60 transition-all duration-300 group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-2.5">
                     <div className="w-9 h-9 rounded-xl border border-sky-500/30 bg-sky-500/15 flex items-center justify-center text-sky-600 dark:text-sky-400 group-hover:scale-110 transition-transform">
                       <Wrench className="w-4 h-4" />
                     </div>
-                    <span className="text-[10px] font-black px-2.5 py-0.5 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-500/30 uppercase">
+                    <span className="text-[11px] sm:text-xs font-black px-2.5 py-0.5 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-500/30 uppercase">
                       {tool.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-sm font-black text-foreground group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors mb-1.5">
+                  <h3 className="text-[15px] sm:text-base font-black text-foreground group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors mb-1">
                     {tool.title}
                   </h3>
 
-                  <p className="text-xs text-muted-foreground font-medium leading-relaxed mb-5 line-clamp-2">
+                  <p className="text-[13px] text-muted-foreground font-medium leading-snug mb-3.5 line-clamp-2">
                     {tool.description}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-border/60 flex items-center justify-between">
-                  <span className="text-[11px] font-bold text-muted-foreground flex items-center gap-1">
-                    <Users className="w-3 h-3 text-sky-500" /> {tool.users}
+                <div className="pt-2.5 border-t border-border/60 flex items-center justify-between">
+                  <span className="text-[12px] sm:text-[13px] font-bold text-muted-foreground flex items-center gap-1">
+                    <Users className="w-3.5 h-3.5 text-sky-500" /> {tool.users}
                   </span>
                   <Link 
                     href={tool.href}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-sky-500/10 hover:bg-sky-600 hover:text-white text-sky-600 dark:text-sky-400 text-xs font-black transition-all group-hover:bg-sky-600 group-hover:text-white border border-sky-500/20"
+                    className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-sky-500/10 hover:bg-sky-600 hover:text-white text-sky-600 dark:text-sky-400 text-[13px] font-black transition-all group-hover:bg-sky-600 group-hover:text-white border border-sky-500/20"
                   >
                     <span>Launch</span>
-                    <ArrowUpRight className="w-3 h-3" />
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
             ))
           ) : (
-            <div className="col-span-full py-12 text-center bg-card border-2 border-border/80 rounded-2xl">
-              <p className="text-muted-foreground text-xs font-bold">No specific tools found under "{currentTab}".</p>
+            <div className="col-span-full py-10 text-center bg-card border-2 border-border/80 rounded-2xl">
+              <p className="text-muted-foreground text-[13px] sm:text-sm font-bold">No specific tools found under "{currentTab}".</p>
             </div>
           )}
         </div>
@@ -291,10 +291,10 @@ export default function CategoriesGrid({ activeTab = "All Categories" }: Categor
 
       {/* View More Button */}
       {isAllCategories && (
-        <div className="mt-8 text-center">
-          <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-card hover:bg-secondary border-2 border-border text-foreground font-black text-xs transition-all shadow-sm cursor-pointer">
+        <div className="mt-6 text-center">
+          <button className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-card hover:bg-secondary border-2 border-border text-foreground font-black text-[13px] sm:text-sm transition-all shadow-sm cursor-pointer">
             <span>View More Categories</span>
-            <ChevronDown className="w-3.5 h-3.5" />
+            <ChevronDown className="w-4 h-4" />
           </button>
         </div>
       )}

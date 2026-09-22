@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-sky-400/15 dark:bg-sky-500/10 rounded-full blur-3xl pointer-events-none -z-0" />
 
       {/* Main Container */}
-      <div className="w-full px-6 sm:px-12 lg:px-20 max-w-[1400px] mx-auto relative z-10">
+      <div className="w-full px-6 sm:px-12 lg:px-20 max-w-[1400px] mx-auto relative z-10 pb-12">
         
         {/* Centered Compact Content Wrapper (Wider text layout, compact vertical space) */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
@@ -70,6 +70,9 @@ export default function Hero() {
         </div>
 
       </div>
+
+      {/* Cloud-like Blurry & Fading Bottom Transition */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white dark:from-background via-sky-100/50 dark:via-background/40 to-transparent pointer-events-none z-20" />
     </section>
   );
 }

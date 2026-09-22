@@ -4,43 +4,43 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
-/* Import Global Layout Components */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LoginModal from "@/components/ui/LoginModal";
 import SearchModal from "@/components/ui/SearchModal";
 
-/* Import Modularized Category Sections */
 import CategoryHero from "@/sections/Category/dynamic/CategoryHero";
+import { AboutWidget, LeftWidgets, RightWidgets } from "@/sections/Category/dynamic/CategoryWidgets";
 import ToolGrid from "@/sections/Category/dynamic/ToolGrid";
-import CategorySidebar from "@/sections/Category/dynamic/CategorySidebar";
 
-/* Interface Definitions */
 interface CategoryViewProps {
   slug: string;
 }
 
 export default function CategoryView({ slug }: CategoryViewProps) {
-  /* State Management */
+  const [mounted, setMounted] = useState(false); 
+  
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [activeFilter, setActiveFilter] = useState("All");
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  /* Initialize Theme State */
   useEffect(() => {
     const savedTheme = localStorage.getItem("toolbox-theme");
-    if (savedTheme === "dark") {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       setIsDarkMode(true);
       document.documentElement.classList.add("dark");
     } else {
       setIsDarkMode(false);
       document.documentElement.classList.remove("dark");
     }
+    
+    setMounted(true);
   }, []);
 
-  /* Theme Toggle Handler */
   const toggleTheme = () => {
     setIsDarkMode((prev) => {
       const newTheme = !prev;
@@ -54,17 +54,17 @@ export default function CategoryView({ slug }: CategoryViewProps) {
     });
   };
 
-  /* Helper to format slug to title (e.g., 'developer-suite' -> 'Developer Suite') */
   const formattedTitle = slug
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
-  /* Render Layout */
+  if (!mounted) {
+    return <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950" />; 
+  }
+
   return (
-    <div className={`min-h-screen bg-background text-foreground relative overflow-hidden ${isDarkMode ? "dark" : ""}`}>
-      
-      {/* Global Navbar */}
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 relative overflow-hidden transition-colors duration-300">
       <Navbar
         onOpenSearch={() => setIsSearchOpen(true)}
         onOpenLogin={() => setIsLoginModalOpen(true)}
@@ -72,56 +72,53 @@ export default function CategoryView({ slug }: CategoryViewProps) {
         isDarkMode={isDarkMode}
       />
 
-      <div className="w-full px-4 sm:px-8 lg:px-12 max-w-[1550px] mx-auto pb-16 pt-6">
+      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1550px] mx-auto pb-12 pt-4">
         
-        {/* Breadcrumbs Navigation */}
-        <nav className="flex items-center gap-2 text-[11px] font-bold text-muted-foreground mb-6 uppercase tracking-wider">
-          <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-          <ChevronRight className="w-3 h-3 text-muted-foreground" />
-          <Link href="/categories" className="hover:text-foreground transition-colors">Categories</Link>
-          <ChevronRight className="w-3 h-3 text-muted-foreground" />
-          <span className="text-foreground font-extrabold">{formattedTitle}</span>
+        {/* Breadcrumbs */}
+        <nav className="flex items-center gap-2 text-[11px] font-bold text-neutral-500 dark:text-neutral-400 mb-4 uppercase tracking-wider">
+          <Link href="/" className="hover:text-neutral-900 dark:hover:text-white transition-colors">Home</Link>
+          <ChevronRight className="w-3 h-3" />
+          <Link href="/categories" className="hover:text-neutral-900 dark:hover:text-white transition-colors">Categories</Link>
+          <ChevronRight className="w-3 h-3" />
+          <span className="text-neutral-900 dark:text-white font-extrabold">{formattedTitle}</span>
         </nav>
 
-        {/* Hero Section Component */}
-        <CategoryHero formattedTitle={formattedTitle} />
-
-        {/* Main Content Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-10">
-          
-          {/* Left Column: Tools Directory & Grid */}
-          <div className="lg:col-span-8 flex flex-col gap-8">
-            <ToolGrid 
-              formattedTitle={formattedTitle} 
-              viewMode={viewMode} 
-              setViewMode={setViewMode} 
-              activeFilter={activeFilter} 
-              setActiveFilter={setActiveFilter} 
-            />
-          </div>
-
-          {/* Right Column: Sidebar & Meta Info */}
-          <div className="lg:col-span-4 flex flex-col gap-6">
-            <CategorySidebar formattedTitle={formattedTitle} />
-          </div>
-
+        {/* Top Hero Section */}
+        <div className="mb-6">
+          <CategoryHero formattedTitle={formattedTitle} />
         </div>
+
+        {/* About Section - Full Width */}
+        <div className="mb-8">
+          <AboutWidget formattedTitle={formattedTitle} />
+        </div>
+
+        {/* Main Content: All Tools Grid */}
+        <div className="w-full mb-12">
+          <ToolGrid 
+            formattedTitle={formattedTitle} 
+            viewMode={viewMode} 
+            setViewMode={setViewMode} 
+            activeFilter={activeFilter} 
+            setActiveFilter={setActiveFilter} 
+          />
+        </div>
+
+        {/* Bottom Split */}
+        <div className="flex flex-col lg:flex-row gap-6 pt-8 border-t border-neutral-200 dark:border-neutral-800">
+          <div className="w-full lg:w-[60%] flex flex-col gap-6 shrink-0">
+            <LeftWidgets />
+          </div>
+          <div className="w-full lg:w-[40%] flex flex-col gap-6">
+            <RightWidgets />
+          </div>
+        </div>
+
       </div>
 
-      {/* Global Footer */}
       <Footer />
-
-      {/* Global Modals */}
-      <LoginModal 
-        isOpen={isLoginModalOpen} 
-        onClose={() => setIsLoginModalOpen(false)} 
-      />
-      
-      <SearchModal 
-        isOpen={isSearchOpen} 
-        onClose={() => setIsSearchOpen(false)} 
-      />
-
+      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </div>
   );
 }
